@@ -8,9 +8,14 @@ export class managementController {
   constructor(private managementService: ManagementService) {}
 
   @Post()
-  createTask(
+  createVehicleInfo(
     @Body() createVehicleDto: CreateVehicleInfoDto,
   ): Promise<vehicleManagement> {
-    return this.managementService.createTasks(createVehicleDto);
+    return this.managementService.createVehicleInfo(createVehicleDto);
+  }
+
+  @Get('/:id')
+  getVehicleInfoByID(@Param('id') id: string): Promise<vehicleManagement> {
+    return this.managementService.getVehicleInfoByID(id);
   }
 }
